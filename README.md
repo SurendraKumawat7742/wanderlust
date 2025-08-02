@@ -21,6 +21,24 @@
       - Custom error handling middleware for graceful error management.
    + RESTful API Design:
       - Implements a RESTful structure for managing listings and reviews.
+ #Tech Stack
+   + Backend:
+      - Node.js: Server-side JavaScript runtime.
+      - Express.js: Web framework for routing and middleware.
+      - Mongoose: ODM library for MongoDB.
+    
+   + Database:
+      - MongoDB: NoSQL database for user and listing data.
+   + Frontend:
+      - EJS (Embedded JavaScript): Templating engine for rendering views.
+      - Bootstrap: CSS framework for responsive design.
+   + Authentication:
+      - Passport.js: Middleware for user authentication.
+   + Session Management:
+      - express-session: Middleware for session handling.
+      - connect-mongo: MongoDB session store.
+   + Environment Management:
+      - dotenv: Module for loading environment variables.
 
 
 

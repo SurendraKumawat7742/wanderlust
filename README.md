@@ -9,9 +9,6 @@ To get started with Wanderlust on your local machine, follow these steps:
 Clone the repository from GitHub:
    ```bash
    git clone https://github.com/user-name/Wanderlust.git
-   cd Wanderlust
-   npm install
-   npm start
 ```
 Open your browser and navigate to `http://localhost:8080/listings` to view the application.
 
@@ -35,4 +32,5 @@ Open your browser and navigate to `http://localhost:8080/listings` to view the a
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to Wanderlust, please fork the repository, make your changes, and submit a pull request.
+
 

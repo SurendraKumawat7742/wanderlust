@@ -6,7 +6,7 @@ Wanderlust is a full-stack web application that allows users to discover travel 
 
 ## 🌐 Live Demo
 
-[Wanderlust]("https://wanderlust-1-q8ux.onrender.com/listings")
+[Wanderlust](https://wanderlust-1-q8ux.onrender.com/listings)
 
 ## ✨ Features
 - 🔐 User registration and authentication
@@ -137,7 +137,7 @@ Wanderlust uses MongoDB with Mongoose for data persistence.
 ### Listing
 
 Stores information about properties and destinations.
-
+```text
 Listing
 ├── title
 ├── description
@@ -145,24 +145,24 @@ Listing
 ├── price
 ├── location
 └── country
-
+```
 ### User
 
 Stores registered user information and authentication details.
-
+```text
 User
 ├── username
 └── password
-
+```
 ### Review
 
 Stores reviews and ratings associated with listings.
-
+```text
 Review
 ├── rating
 ├── comment
 └── author
-
+```
 ## ⚙️ Getting Started
 
 ### Prerequisites

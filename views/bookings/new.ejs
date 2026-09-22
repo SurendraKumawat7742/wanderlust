@@ -1,0 +1,79 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row mt-5">
+    <div class="col-md-8 offset-md-2">
+
+        <h2 class="mb-4">Book Your Stay</h2>
+
+        <div class="card p-4">
+
+            <h4><%= listing.title %></h4>
+
+            <p>
+                <%= listing.location %>, <%= listing.country %>
+            </p>
+
+            <p>
+                Price:
+                <strong>₹<%= listing.price %></strong> / night
+            </p>
+
+            <form
+                action="/listings/<%= listing._id %>/book"
+                method="POST"
+            >
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Check-in
+                    </label>
+
+                    <input
+                        type="date"
+                        name="checkIn"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Check-out
+                    </label>
+
+                    <input
+                        type="date"
+                        name="checkOut"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Guests
+                    </label>
+
+                    <input
+                        type="number"
+                        name="guests"
+                        class="form-control"
+                        min="1"
+                        value="1"
+                        required
+                    >
+                </div>
+
+
+                <button class="btn btn-dark">
+                    Continue to Payment
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

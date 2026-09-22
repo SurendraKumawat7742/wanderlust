@@ -26,6 +26,22 @@
     <% } %>
 
     <div class="col-8 offset-3 mb-3">
+        <!-- Book section  -->
+        <% if (currUser) { %>
+            <a
+                href="/listings/<%= listing._id %>/book"
+                class="btn btn-dark"
+            >
+                Book Now
+            </a>
+        <% } else { %>
+            <a
+                href="/login"
+                class="btn btn-dark"
+            >
+                Login to Book
+            </a>
+        <% } %>
         <hr>
         <% if(currUser){ %>
         <h4>Leave a Review</h4>

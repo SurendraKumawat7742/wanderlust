@@ -1,0 +1,151 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row mt-5">
+    <div class="col-md-8 offset-md-2">
+
+        <div class="card p-4">
+
+            <h2 class="mb-4">
+                Complete Your Payment
+            </h2>
+
+
+            <h4>
+                <%= listing.title %>
+            </h4>
+
+
+            <hr>
+
+
+            <p>
+                Check-in:
+                <strong>
+                    <%= booking.checkIn.toDateString() %>
+                </strong>
+            </p>
+
+
+            <p>
+                Check-out:
+                <strong>
+                    <%= booking.checkOut.toDateString() %>
+                </strong>
+            </p>
+
+
+            <p>
+                Guests:
+                <strong>
+                    <%= booking.guests %>
+                </strong>
+            </p>
+
+
+            <h4 class="mt-3">
+                Total:
+                ₹<%= booking.totalPrice %>
+            </h4>
+
+
+            <button
+                id="pay-btn"
+                class="btn btn-dark mt-4"
+            >
+                Pay ₹<%= booking.totalPrice %>
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<script>
+
+    const options = {
+
+        key: "<%= razorpayKeyId %>",
+
+        amount: "<%= razorpayOrder.amount %>",
+
+        currency: "INR",
+
+        name: "Wanderlust",
+
+        description: "Booking Payment",
+
+        order_id: "<%= razorpayOrder.id %>",
+
+
+        handler: async function (response) {
+
+            console.log("Payment response:", response);
+
+
+            const result = await fetch(
+                "/payment/verify",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        razorpay_order_id:
+                            response.razorpay_order_id,
+
+                        razorpay_payment_id:
+                            response.razorpay_payment_id,
+
+                        razorpay_signature:
+                            response.razorpay_signature
+
+                    })
+                }
+            );
+
+
+            const data = await result.json();
+
+
+            if (data.success) {
+
+                window.location.href =
+                    "/payment/success/" + data.bookingId;
+
+            } else {
+
+                alert("Payment verification failed.");
+
+            }
+
+        },
+
+
+        theme: {
+            color: "#000000"
+        }
+
+    };
+
+
+    const rzp = new Razorpay(options);
+
+
+    document
+        .getElementById("pay-btn")
+        .addEventListener("click", function (e) {
+
+            rzp.open();
+
+            e.preventDefault();
+
+        });
+
+</script>

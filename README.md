@@ -6,7 +6,7 @@ Wanderlust is a full-stack web application that allows users to discover travel 
 
 ## 🌐 Live Demo
 
-[Wanderlust](https://wanderlust-1-q8ux.onrender.com/listings)
+[Wanderlust](https://wanderlust-4-fqzf.onrender.com)
 
 ## ✨ Features
 - 🔐 User registration and authentication
